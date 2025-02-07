@@ -1,0 +1,19 @@
+# MPLAB IDE generated this makefile for use with GNU make.
+# Project: SEVEN_SEG_UP_DOWN_COUNTER.mcp
+# Date: Tue Feb 08 19:12:46 2022
+
+AS = MPASMWIN.exe
+CC = mcc18.exe
+LD = mplink.exe
+AR = mplib.exe
+RM = rm
+
+SEVEN_SEG_UP_DOWN_COUNTER.cof : Main.o
+	$(LD) /p18F8722 /l"C:\Program Files (x86)\Microchip\MPLABC18\v3.47\lib" "Main.o" /u_CRUNTIME /u_DEBUG /z__MPLAB_BUILD=1 /z__MPLAB_DEBUG=1 /o"SEVEN_SEG_UP_DOWN_COUNTER.cof" /M"SEVEN_SEG_UP_DOWN_COUNTER.map" /W
+
+Main.o : Main.c ../../../../../../../../Program\ Files\ (x86)/Microchip/MPLABC18/v3.47/h/delays.h ../../../../../../../../Program\ Files\ (x86)/Microchip/MPLABC18/v3.47/h/stdio.h Main.c ../../../../../../../../Program\ Files\ (x86)/Microchip/MPLABC18/v3.47/h/p18cxxx.h ../../../../../../../../Program\ Files\ (x86)/Microchip/MPLABC18/v3.47/h/p18f8722.h ../../../../../../../../Program\ Files\ (x86)/Microchip/MPLABC18/v3.47/h/stdarg.h ../../../../../../../../Program\ Files\ (x86)/Microchip/MPLABC18/v3.47/h/stddef.h
+	$(CC) -p=18F8722 "Main.c" -fo="Main.o" -D__DEBUG -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
+
+clean : 
+	$(RM) "Main.o" "SEVEN_SEG_UP_DOWN_COUNTER.cof" "SEVEN_SEG_UP_DOWN_COUNTER.hex"
+
