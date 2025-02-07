@@ -1,10 +1,10 @@
 
-# 1 "C:\Program Files\Microchip\xc8\v2.36\pic\sources\c90\common\doprnt.c"
+# 1 "C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\doprnt.c"
 
-# 4 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\__size_t.h"
+# 4 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\__size_t.h"
 typedef unsigned size_t;
 
-# 7 "C:\Program Files\Microchip\xc8\v2.36\pic\include\c90\stdarg.h"
+# 7 "C:\Program Files\Microchip\xc8\v2.40\pic\include\c90\stdarg.h"
 typedef void * va_list[1];
 
 #pragma intrinsic(__va_start)
@@ -13,17 +13,17 @@ extern void * __va_start(void);
 #pragma intrinsic(__va_arg)
 extern void * __va_arg(void *, ...);
 
-# 43 "C:\Program Files\Microchip\xc8\v2.36\pic\include\c90\stdio.h"
+# 43 "C:\Program Files\Microchip\xc8\v2.40\pic\include\c90\stdio.h"
 struct __prbuf
 {
 char * ptr;
 void (* func)(char);
 };
 
-# 29 "C:\Program Files\Microchip\xc8\v2.36\pic\include\c90\errno.h"
+# 29 "C:\Program Files\Microchip\xc8\v2.40\pic\include\c90\errno.h"
 extern int errno;
 
-# 12 "C:\Program Files\Microchip\xc8\v2.36\pic\include\c90\conio.h"
+# 12 "C:\Program Files\Microchip\xc8\v2.40\pic\include\c90\conio.h"
 extern void init_uart(void);
 
 extern char getch(void);
@@ -37,7 +37,7 @@ extern __bit kbhit(void);
 extern char * cgets(char *);
 extern void cputs(const char *);
 
-# 88 "C:\Program Files\Microchip\xc8\v2.36\pic\include\c90\stdio.h"
+# 88 "C:\Program Files\Microchip\xc8\v2.40\pic\include\c90\stdio.h"
 extern int cprintf(char *, ...);
 #pragma printf_check(cprintf)
 
@@ -64,7 +64,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
-# 4 "C:\Program Files\Microchip\xc8\v2.36\pic\include\c90\ctype.h"
+# 4 "C:\Program Files\Microchip\xc8\v2.40\pic\include\c90\ctype.h"
 extern __bit isalpha(char);
 extern __bit isupper(char);
 extern __bit islower(char);
@@ -81,7 +81,7 @@ extern __bit iscntrl(char);
 extern char toupper(char);
 extern char tolower(char);
 
-# 7 "C:\Program Files\Microchip\xc8\v2.36\pic\include\c90\stdlib.h"
+# 7 "C:\Program Files\Microchip\xc8\v2.40\pic\include\c90\stdlib.h"
 typedef unsigned short wchar_t;
 
 # 15
@@ -134,11 +134,11 @@ extern void free(void *);
 extern void * realloc(void *, size_t);
 
 
-# 13 "C:\Program Files\Microchip\xc8\v2.36\pic\include\c90\xc8debug.h"
+# 13 "C:\Program Files\Microchip\xc8\v2.40\pic\include\c90\xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 104 "C:\Program Files\Microchip\xc8\v2.36\pic\include\c90\stdlib.h"
+# 104 "C:\Program Files\Microchip\xc8\v2.40\pic\include\c90\stdlib.h"
 extern int atexit(void (*)(void));
 extern char * getenv(const char *);
 extern char ** environ;
@@ -159,7 +159,7 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
 
-# 14 "C:\Program Files\Microchip\xc8\v2.36\pic\include\c90\string.h"
+# 14 "C:\Program Files\Microchip\xc8\v2.40\pic\include\c90\string.h"
 extern void * memcpy(void *, const void *, size_t);
 extern void * memmove(void *, const void *, size_t);
 extern void * memset(void *, int, size_t);
@@ -191,7 +191,7 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 30 "C:\Program Files\Microchip\xc8\v2.36\pic\include\c90\math.h"
+# 30 "C:\Program Files\Microchip\xc8\v2.40\pic\include\c90\math.h"
 extern double fabs(double);
 extern double floor(double);
 extern double ceil(double);
@@ -220,7 +220,7 @@ extern double trunc(double);
 extern double round(double);
 
 
-# 12 "C:\Program Files\Microchip\xc8\v2.36\pic\sources\c90\common\doprnt.c"
+# 12 "C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\doprnt.c"
 #pragma warning disable 350
 
 # 358
@@ -228,6 +228,13 @@ const static unsigned long dpowers[] = {1, 10, 100, 1000, 10000,
 
 100000, 1000000, 10000000, 100000000,
 1000000000
+
+};
+
+
+const static unsigned long hexpowers[] = {1, 0x10, 0x100, 0x1000,
+
+0x10000, 0x100000, 0x1000000, 0x10000000
 
 };
 
@@ -356,6 +363,15 @@ case 'f':
 flag |= 0x400;
 break;
 
+# 738
+case 'X':
+
+# 744
+case 'x':
+
+# 749
+break;
+
 # 828
 default:
 
@@ -479,9 +495,21 @@ prec--;
 continue;
 }
 
-# 1316
+# 1299
+{
+
+# 1312
+val = (*(unsigned *)__va_arg((*(unsigned **)ap), (unsigned)0));
+}
+
+
 if(prec == 0 && val == 0)
 prec++;
+
+# 1342
+for(c = 1 ; c != sizeof hexpowers/sizeof hexpowers[0] ; c++)
+if(val < hexpowers[c])
+break;
 
 # 1365
 if(c < prec)
@@ -497,6 +525,28 @@ if(flag & 0x03)
 ((*sp++ = ('-')));
 
 # 1495
+}
+
+# 1500
+while(prec--) {
+
+# 1504
+{
+
+# 1525
+{
+unsigned char idx = (val / hexpowers[(unsigned int)prec]) & 0xF;
+
+
+
+c = "0123456789ABCDEF"[idx];
+
+# 1534
+}
+
+# 1549
+}
+((*sp++ = (c)));
 }
 
 # 1559

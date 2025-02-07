@@ -82,7 +82,7 @@ void main(void) {
         LCD_DISPLAY("BEST PROGRAMMER");
         LCD_20_LINE2();
         LCD_DISPLAY("IN THE WORLD !!! ");
-        LCD_DISPLAY_DIGIT(8);
+        //LCD_DISPLAY_DIGIT(8);
         
     }
     return;

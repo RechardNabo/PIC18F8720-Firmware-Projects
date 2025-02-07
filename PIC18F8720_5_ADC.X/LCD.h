@@ -15,7 +15,8 @@ extern "C" {
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define _XTAL_FREQ 0x12BFCE0
+#include <stdlib.h>
+#define _XTAL_FREQ 19660000
 #define _4bit_mode 0x04
 
 
@@ -24,52 +25,31 @@ extern "C" {
 #define RW PORTBbits.RB3        //orange wire
 #define EN PORTJbits.RJ0 
 //========[D0 - D7 for data]============= 
-#define D4 TRISCbits.RC0 
-#define D5 TRISCbits.RC1 
-#define D6 TRISCbits.RC2 
-#define D7 TRISCbits.RC3 
+#define D4 TRISFbits.RF0 
+#define D5 TRISFbits.RF1 
+#define D6 TRISHbits.RH4 
+#define D7 TRISHbits.RH5 
 
 
 void LCD_SETUP_4BIT(){
-    //====================[Setup Bits]=====================
-    //Interrupt operation registers
-    //Capture/Compare/PWM - CCPx
-
-    
-    CCP2CONbits.CCP2M0 = 0x00;
-    CCP2CONbits.CCP2M1 = 0x00;
-    CCP2CONbits.CCP2M2 = 0x00;
-    CCP2CONbits.CCP2M3 = 0x00;
-    
-    //  Capture/Compare/PWM - CCPx
-    //  MSSP module is operated in SPI or I2C mode
-    //  Timer 1 control register
-    CCP1CONbits.CCP1M0 = 0x00;
-    CCP1CONbits.CCP1M1 = 0x00;
-    CCP1CONbits.CCP1M2 = 0x00;
-    CCP1CONbits.CCP1M3 = 0x00;
-    
-    SSPCON1bits.SSPEN = 0x00;
-    RCSTA1bits.SPEN = 0x00;
-    RCSTA2bits.SPEN2 = 0x00;
-    
-    T1CONbits.T1OSCEN = 0x00;
+    //====================[Setup Bits]=======================
     //=======================================================
-	TRISJ0 = 0x00;
-	TRISJ1 = 0x00;
-	TRISB3 = 0x00;
+	TRISJbits.TRISJ0 = 0x00;
+	TRISJbits.TRISJ1 = 0x00;
+	TRISBbits.TRISB3 = 0x00;
 	//=======================================================
-	TRISC0 = 0x00;
-	TRISC1 = 0x00;
-	TRISC2 = 0x00;
-	TRISC3 = 0x00;
+	TRISFbits.TRISF0 = 0x00;
+	TRISFbits.TRISF1 = 0x00;
+	TRISHbits.TRISH4 = 0x00;
+    //TRISCbits.TRISC2 = 0x00;
+	TRISHbits.TRISH5 = 0x00;
 }
 
 
 
 void LCD_DATA(unsigned char data, int mode){
 	unsigned char _data = data;
-	unsigned int _4bit_[_4bit_mode];
+	int _4bit_[_4bit_mode];
 	if(mode == 0x04){
 		_data = _data>>0x04;
 		for(int x =0x00; x < _4bit_mode; x-=-0x01){
@@ -134,27 +114,7 @@ void LCD_INSTRUCTION_4BIT(unsigned char instruction){
 		EN = 0x00;
 		//=======================================	
 }
-void LCD_SET_CURSOR(char a, char b){
-    char temp,z,y;
-    if(a== 1){
-        temp = 0x80 + b - 1; //80H is used to move the curser
-        z = temp>>4; //Lower 8-bits
-        y = temp & 0x0F; //Upper 8-bits
-        LCD_INSTRUCTION_4BIT(z); //Set Row
-        LCD_INSTRUCTION_4BIT(y); //Set Column
-    }
 
-    else if(a== 2)
-    {
-        temp = 0xC0 + b - 1;
-        z = temp>>4; //Lower 8-bits
-        y = temp & 0x0F; //Upper 8-bits
-        LCD_INSTRUCTION_4BIT(z); //Set Row
-        LCD_INSTRUCTION_4BIT(y); //Set Column
-    }
-}
-void LCD_DISPLAY_SHITT_RIGHT(){LCD_INSTRUCTION_4BIT(0x1C);}
-void LCD_DISPLAY_SHIFT_LEFT(){LCD_INSTRUCTION_4BIT(0x18);}
 void LCD_INITIALIZE_4BIT(){
 	LCD_INSTRUCTION_4BIT(0x02);
 	LCD_INSTRUCTION_4BIT(0x28);
@@ -179,8 +139,6 @@ void LCD_DISPLAY_DIGIT(float num){
     sprintf(s,"%.2f",num);
 	LCD_DISPLAY(s);
 }
-
-void LCD_CLEAR(){LCD_INSTRUCTION_4BIT(0x02);}
 
 //=======================[20x4 LCD Lines]=======================
 void LCD_20_LINE1(){LCD_INSTRUCTION_4BIT(0x80);}

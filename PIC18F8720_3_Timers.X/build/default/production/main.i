@@ -68,17 +68,17 @@
 
 #pragma config EBTRB = OFF
 
-# 18 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\xc.h"
+# 18 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\xc.h"
 extern const char __xc8_OPTIM_SPEED;
 
 extern double __fpnormalize(double);
 
 
-# 13 "C:\Program Files\Microchip\xc8\v2.36\pic\include\c90\xc8debug.h"
+# 13 "C:\Program Files\Microchip\xc8\v2.40\pic\include\c90\xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 13 "C:\Program Files\Microchip\xc8\v2.36\pic\include\c90\stdint.h"
+# 13 "C:\Program Files\Microchip\xc8\v2.40\pic\include\c90\stdint.h"
 typedef signed char int8_t;
 
 # 20
@@ -165,7 +165,7 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 
 
-# 7 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\builtins.h"
+# 7 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\builtins.h"
 #pragma intrinsic(__nop)
 extern void __nop(void);
 
@@ -178,7 +178,7 @@ extern __nonreentrant void _delaywdt(uint32_t);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(uint8_t);
 
-# 53 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f8720.h"
+# 53 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f8720.h"
 extern volatile unsigned char RCSTA2 __at(0xF6B);
 
 asm("RCSTA2 equ 0F6Bh");
@@ -5955,7 +5955,7 @@ extern volatile __bit nW __at(0x7E3A);
 
 extern volatile __bit nWRITE __at(0x7E3A);
 
-# 19 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\pic18.h"
+# 19 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\pic18.h"
 __attribute__((__unsupported__("The " "flash_write" " routine is no longer supported. Please use the MPLAB X MCC."))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
 __attribute__((__unsupported__("The " "EraseFlash" " routine is no longer supported. Please use the MPLAB X MCC."))) void EraseFlash(unsigned long startaddr, unsigned long endaddr);
 
@@ -5968,10 +5968,10 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 
-# 4 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\__size_t.h"
+# 4 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\__size_t.h"
 typedef unsigned size_t;
 
-# 7 "C:\Program Files\Microchip\xc8\v2.36\pic\include\c90\stdarg.h"
+# 7 "C:\Program Files\Microchip\xc8\v2.40\pic\include\c90\stdarg.h"
 typedef void * va_list[1];
 
 #pragma intrinsic(__va_start)
@@ -5980,17 +5980,17 @@ extern void * __va_start(void);
 #pragma intrinsic(__va_arg)
 extern void * __va_arg(void *, ...);
 
-# 43 "C:\Program Files\Microchip\xc8\v2.36\pic\include\c90\stdio.h"
+# 43 "C:\Program Files\Microchip\xc8\v2.40\pic\include\c90\stdio.h"
 struct __prbuf
 {
 char * ptr;
 void (* func)(char);
 };
 
-# 29 "C:\Program Files\Microchip\xc8\v2.36\pic\include\c90\errno.h"
+# 29 "C:\Program Files\Microchip\xc8\v2.40\pic\include\c90\errno.h"
 extern int errno;
 
-# 12 "C:\Program Files\Microchip\xc8\v2.36\pic\include\c90\conio.h"
+# 12 "C:\Program Files\Microchip\xc8\v2.40\pic\include\c90\conio.h"
 extern void init_uart(void);
 
 extern char getch(void);
@@ -6004,7 +6004,7 @@ extern __bit kbhit(void);
 extern char * cgets(char *);
 extern void cputs(const char *);
 
-# 88 "C:\Program Files\Microchip\xc8\v2.36\pic\include\c90\stdio.h"
+# 88 "C:\Program Files\Microchip\xc8\v2.40\pic\include\c90\stdio.h"
 extern int cprintf(char *, ...);
 #pragma printf_check(cprintf)
 
@@ -6031,7 +6031,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
-# 7 "C:\Program Files\Microchip\xc8\v2.36\pic\include\c90\stdlib.h"
+# 7 "C:\Program Files\Microchip\xc8\v2.40\pic\include\c90\stdlib.h"
 typedef unsigned short wchar_t;
 
 # 15
@@ -6104,7 +6104,7 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
 
-# 14 "C:\Program Files\Microchip\xc8\v2.36\pic\include\c90\string.h"
+# 14 "C:\Program Files\Microchip\xc8\v2.40\pic\include\c90\string.h"
 extern void * memcpy(void *, const void *, size_t);
 extern void * memmove(void *, const void *, size_t);
 extern void * memset(void *, int, size_t);
@@ -6139,36 +6139,17 @@ extern char * strrichr(const char *, int);
 # 34 "LCD.h"
 void LCD_SETUP_4BIT(){
 
-# 40
-CCP2CONbits.CCP2M0 = 0x00;
-CCP2CONbits.CCP2M1 = 0x00;
-CCP2CONbits.CCP2M2 = 0x00;
-CCP2CONbits.CCP2M3 = 0x00;
+
+TRISJbits.TRISJ0 = 0x00;
+TRISJbits.TRISJ1 = 0x00;
 
 
+TRISFbits.TRISF0 = 0x00;
+TRISFbits.TRISF1 = 0x00;
+TRISHbits.TRISH4 = 0x00;
 
-
-CCP1CONbits.CCP1M0 = 0x00;
-CCP1CONbits.CCP1M1 = 0x00;
-CCP1CONbits.CCP1M2 = 0x00;
-CCP1CONbits.CCP1M3 = 0x00;
-
-SSPCON1bits.SSPEN = 0x00;
-RCSTA1bits.SPEN = 0x00;
-RCSTA2bits.SPEN2 = 0x00;
-
-T1CONbits.T1OSCEN = 0x00;
-
-TRISJ0 = 0x00;
-TRISJ1 = 0x00;
-TRISB3 = 0x00;
-
-TRISC0 = 0x00;
-TRISC1 = 0x00;
-TRISC2 = 0x00;
-TRISC3 = 0x00;
+TRISHbits.TRISH5 = 0x00;
 }
-
 
 
 void LCD_DATA(unsigned char data, int mode){
@@ -6179,28 +6160,28 @@ _data = _data>>0x04;
 for(int x =0x00; x < 0x04; x-=-0x01){
 _4bit_[x] = (_data & (0x01<<x))>>x;
 }
-TRISCbits.RC0 = (char)_4bit_[0x00];
-TRISCbits.RC1 = (char)_4bit_[0x01];
-TRISCbits.RC2 = (char)_4bit_[0x02];
-TRISCbits.RC3 = (char)_4bit_[0x03];
+TRISFbits.RF0 = (char)_4bit_[0x00];
+TRISFbits.RF1 = (char)_4bit_[0x01];
+TRISHbits.RH4 = (char)_4bit_[0x02];
+TRISHbits.RH5 = (char)_4bit_[0x03];
 PORTJbits.RJ1 = 0x01;
-PORTBbits.RB3 = 0x00;
+
 PORTJbits.RJ0 = 0x01;
-_delay((unsigned long)((2)*(0x12BFCE0/4000.0)));
+_delay((unsigned long)((10)*(0x12BFCE0/4000.0)));
 PORTJbits.RJ0 = 0x00;
 
 _data = data;
 for(int x = 0x00; x< 0x04; x-=-0x01){
 _4bit_[x] = (_data & (0x01<<x))>>x;
 }
-TRISCbits.RC0 = (char)_4bit_[0x00];
-TRISCbits.RC1 = (char)_4bit_[0x01];
-TRISCbits.RC2 = (char)_4bit_[0x02];
-TRISCbits.RC3 = (char)_4bit_[0x03];
+TRISFbits.RF0 = (char)_4bit_[0x00];
+TRISFbits.RF1 = (char)_4bit_[0x01];
+TRISHbits.RH4 = (char)_4bit_[0x02];
+TRISHbits.RH5 = (char)_4bit_[0x03];
 PORTJbits.RJ1 = 0x01;
-PORTBbits.RB3 = 0x00;
+
 PORTJbits.RJ0 = 0x01;
-_delay((unsigned long)((2)*(0x12BFCE0/4000.0)));
+_delay((unsigned long)((10)*(0x12BFCE0/4000.0)));
 PORTJbits.RJ0 = 0x00;
 
 }
@@ -6213,28 +6194,28 @@ data = data>>0x04;
 for(int x =0x00; x < 0x04; x-=-0x01){
 _4bit_[x] = (data & (0x01<<x))>>x;
 }
-TRISCbits.RC0 = (char)_4bit_[0x00];
-TRISCbits.RC1 = (char)_4bit_[0x01];
-TRISCbits.RC2 = (char)_4bit_[0x02];
-TRISCbits.RC3 = (char)_4bit_[0x03];
+TRISFbits.RF0 = (char)_4bit_[0x00];
+TRISFbits.RF1 = (char)_4bit_[0x01];
+TRISHbits.RH4 = (char)_4bit_[0x02];
+TRISHbits.RH5 = (char)_4bit_[0x03];
 PORTJbits.RJ1 = 0x00;
-PORTBbits.RB3 = 0x00;
+
 PORTJbits.RJ0 = 0x01;
-_delay((unsigned long)((2)*(0x12BFCE0/4000.0)));
+_delay((unsigned long)((10)*(0x12BFCE0/4000.0)));
 PORTJbits.RJ0 = 0x00;
 
 data = instruction;
 for(int x = 0x00; x< 0x04; x-=-0x01){
 _4bit_[x] = (data & (0x01<<x))>>x;
 }
-TRISCbits.RC0 = (char)_4bit_[0x00];
-TRISCbits.RC1 = (char)_4bit_[0x01];
-TRISCbits.RC2 = (char)_4bit_[0x02];
-TRISCbits.RC3 = (char)_4bit_[0x03];
+TRISFbits.RF0 = (char)_4bit_[0x00];
+TRISFbits.RF1 = (char)_4bit_[0x01];
+TRISHbits.RH4 = (char)_4bit_[0x02];
+TRISHbits.RH5 = (char)_4bit_[0x03];
 PORTJbits.RJ1 = 0x00;
-PORTBbits.RB3 = 0x00;
+
 PORTJbits.RJ0 = 0x01;
-_delay((unsigned long)((2)*(0x12BFCE0/4000.0)));
+_delay((unsigned long)((10)*(0x12BFCE0/4000.0)));
 PORTJbits.RJ0 = 0x00;
 
 }
@@ -6277,9 +6258,20 @@ LCD_DATA(string[x],0x04);
 }
 }
 
-void LCD_DISPLAY_DIGIT(const unsigned int num){
-LCD_DATA(0x30+(unsigned char)num,0x04);
+void LCD_DISPLAY_DIGIT(float num){
+char s[20];
+signed int x;
+sprintf(s,"%.3f",num);
+LCD_DISPLAY(s);
 }
+
+void LCD_DISPLAY_HEX(int num){
+char s[20];
+signed int x;
+sprintf(s,"0x%X",num);
+LCD_DISPLAY(s);
+}
+
 
 void LCD_CLEAR(){LCD_INSTRUCTION_4BIT(0x02);}
 
@@ -6316,10 +6308,9 @@ LCD_20_LINE1();
 
 LCD_DISPLAY("PIC18 TIMERS");
 LCD_20_LINE2();
-sprintf(s,"cnt %.1f",counter);
-counter -=-10;
+counter -=-0.15281;
 LCD_DISPLAY("TIMER-0 : ");
-LCD_DISPLAY(s);
+LCD_DISPLAY_DIGIT(counter);
 LCD_20_LINE3();
 if(LATDbits.LD0 == 0x01){
 LCD_DISPLAY("RD0 is ON ");

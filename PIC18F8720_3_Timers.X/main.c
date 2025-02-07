@@ -1,24 +1,27 @@
+
 // PIC18F8720 Configuration Bit Settings
+
 // 'C' source line config statements
+
 // CONFIG1H
-#pragma config OSC = HS         // Oscillator Selection bits (HS oscillator)
+#pragma config OSC = HSPLL      // Oscillator Selection bits (HS oscillator with PLL enabled; clock frequency = (4 x FOSC))
 #pragma config OSCS = OFF       // Oscillator System Clock Switch Enable bit (Oscillator system clock switch option is disabled (main oscillator is source))
 
 // CONFIG2L
 #pragma config PWRT = OFF       // Power-up Timer Enable bit (PWRT disabled)
-#pragma config BOR = OFF         // Brown-out Reset Enable bit (Brown-out Reset enabled)
+#pragma config BOR = ON         // Brown-out Reset Enable bit (Brown-out Reset enabled)
 #pragma config BORV = 25        // Brown-out Reset Voltage bits (VBOR set to 2.5V)
 
 // CONFIG2H
 #pragma config WDT = OFF        // Watchdog Timer Enable bit (WDT disabled (control is placed on the SWDTEN bit))
-#pragma config WDTPS = 128      // Watchdog Timer Postscale Select bits (1:128)
+#pragma config WDTPS = 1        // Watchdog Timer Postscale Select bits (1:1)
 
 // CONFIG3L
 #pragma config MODE = MC        // Processor Mode Select bits (Microcontroller mode)
 #pragma config WAIT = OFF       // External Bus Data Wait Enable bit (Wait selections unavailable for table reads and table writes)
 
 // CONFIG3H
-#pragma config CCP2MUX = OFF    // CCP2 Mux bit (CCP2 is multiplexed with RB3 in Extended Microcontroller, Microprocessor or Microprocessor with Boot Block mode. Or with RE7 in Microcontroller mode.)
+#pragma config CCP2MUX = ON     // CCP2 Mux bit (CCP2 input/output is multiplexed with RC1)
 
 // CONFIG4L
 #pragma config STVR = OFF       // Stack Full/Underflow Reset Enable bit (Stack full/underflow will not cause Reset)
@@ -65,6 +68,10 @@
 
 // CONFIG7H
 #pragma config EBTRB = OFF      // Boot Block Table Read Protection bit (Boot Block (000000-0001FFh) not protected from table reads executed in other blocks)
+
+// #pragma config statements should precede project file includes.
+// Use project enums instead of #define for ON and OFF.
+
 #include <xc.h>
 #include <stdio.h>
 
@@ -73,9 +80,11 @@
 #define TRUE 0x01
 #define FALSE 0x00
 #define TIMER_DELAY 100
+
 volatile int count = 0x00;
 void TIMER0_Init();
 void __interrupt ISR();
+
 void main(void) {
     char s[20];
     float counter = 0;
@@ -96,10 +105,9 @@ void main(void) {
         
         LCD_DISPLAY("PIC18 TIMERS");
         LCD_20_LINE2();
-        sprintf(s,"cnt %.1f",counter);
-        counter -=-10;
+        counter -=-0.15281;
         LCD_DISPLAY("TIMER-0 : ");
-        LCD_DISPLAY(s);
+        LCD_DISPLAY_DIGIT(counter);
         LCD_20_LINE3();
         if(LATDbits.LD0 == 0x01){
             LCD_DISPLAY("RD0 is ON ");

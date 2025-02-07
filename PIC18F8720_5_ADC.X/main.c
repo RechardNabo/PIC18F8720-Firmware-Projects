@@ -78,7 +78,7 @@ void main(void) {
     
     float ADC_value, voltage;
    
-    TRISAbits.TRISA0 = 0x01;
+    TRISAbits.TRISA0 = 0x01; // Analog Pin RA0 = J3-No:5
     TRISD = 0x00; 
     
     ADC_Init();
@@ -104,7 +104,7 @@ void main(void) {
 }
 
 void ADC_Init(){
-     ADCON0bits.ADON = 0x01;
+    ADCON0bits.ADON = 0x01;
     ADCON0bits.CHS0 = 0x00;
     ADCON0bits.CHS1 = 0x00;
     ADCON0bits.CHS2 = 0x00;

@@ -15,57 +15,35 @@ extern "C" {
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdlib.h>
 #define _XTAL_FREQ 0x12BFCE0
 #define _4bit_mode 0x04
+#define TIME 10
 
 
 //========[control pins]=========
 #define RS PORTJbits.RJ1        //yello wire
-#define RW PORTBbits.RB3        //orange wire
+//#define RW PORTBbits.RB3        //orange wire
 #define EN PORTJbits.RJ0 
 //========[D0 - D7 for data]============= 
-#define D4 TRISCbits.RC0 
-#define D5 TRISCbits.RC1 
-#define D6 TRISCbits.RC2 
-#define D7 TRISCbits.RC3 
+#define D4 TRISFbits.RF0 
+#define D5 TRISFbits.RF1 
+#define D6 TRISHbits.RH4 
+#define D7 TRISHbits.RH5 
 
 
 void LCD_SETUP_4BIT(){
-    //====================[Setup Bits]=====================
-    //Interrupt operation registers
-    //Capture/Compare/PWM - CCPx
-
-    
-    CCP2CONbits.CCP2M0 = 0x00;
-    CCP2CONbits.CCP2M1 = 0x00;
-    CCP2CONbits.CCP2M2 = 0x00;
-    CCP2CONbits.CCP2M3 = 0x00;
-    
-    //  Capture/Compare/PWM - CCPx
-    //  MSSP module is operated in SPI or I2C mode
-    //  Timer 1 control register
-    CCP1CONbits.CCP1M0 = 0x00;
-    CCP1CONbits.CCP1M1 = 0x00;
-    CCP1CONbits.CCP1M2 = 0x00;
-    CCP1CONbits.CCP1M3 = 0x00;
-    
-    SSPCON1bits.SSPEN = 0x00;
-    RCSTA1bits.SPEN = 0x00;
-    RCSTA2bits.SPEN2 = 0x00;
-    
-    T1CONbits.T1OSCEN = 0x00;
+    //====================[Setup Bits]=======================
     //=======================================================
-	TRISJ0 = 0x00;
-	TRISJ1 = 0x00;
-	TRISB3 = 0x00;
+	TRISJbits.TRISJ0 = 0x00;
+	TRISJbits.TRISJ1 = 0x00;
+	//TRISBbits.TRISB3 = 0x00;
 	//=======================================================
-	TRISC0 = 0x00;
-	TRISC1 = 0x00;
-	TRISC2 = 0x00;
-	TRISC3 = 0x00;
+	TRISFbits.TRISF0 = 0x00;
+	TRISFbits.TRISF1 = 0x00;
+	TRISHbits.TRISH4 = 0x00;
+    //TRISCbits.TRISC2 = 0x00;
+	TRISHbits.TRISH5 = 0x00;
 }
-
 
 
 void LCD_DATA(unsigned char data, int mode){
@@ -81,9 +59,9 @@ void LCD_DATA(unsigned char data, int mode){
 			D6 = (char)_4bit_[0x02];
 			D7 = (char)_4bit_[0x03];
 		RS = 0x01;
-		RW = 0x00;
+		//RW = 0x00;
 		EN = 0x01;
-		__delay_ms(2);
+		__delay_ms(TIME);
 		EN = 0x00;
 		//=======================================
 		_data = data;
@@ -95,9 +73,9 @@ void LCD_DATA(unsigned char data, int mode){
 			D6 = (char)_4bit_[0x02];
 			D7 = (char)_4bit_[0x03];
 		RS = 0x01;
-		RW = 0x00;
+		//RW = 0x00;
 		EN = 0x01;
-		__delay_ms(2);
+		__delay_ms(TIME);
 		EN = 0x00;
 		//=======================================
 	}
@@ -115,9 +93,9 @@ void LCD_INSTRUCTION_4BIT(unsigned char instruction){
 			D6 = (char)_4bit_[0x02];
 			D7 = (char)_4bit_[0x03];
 		RS = 0x00;
-		RW = 0x00;
+		//RW = 0x00;
 		EN = 0x01;
-		__delay_ms(2);
+		__delay_ms(TIME);
 		EN = 0x00;
 		//========================================
 		data = instruction;
@@ -129,9 +107,9 @@ void LCD_INSTRUCTION_4BIT(unsigned char instruction){
 			D6 = (char)_4bit_[0x02];
 			D7 = (char)_4bit_[0x03];
 		RS = 0x00;
-		RW = 0x00;
+		//RW = 0x00;
 		EN = 0x01;
-		__delay_ms(2);
+		__delay_ms(TIME);
 		EN = 0x00;
 		//=======================================	
 }
@@ -177,9 +155,17 @@ void LCD_DISPLAY(const char *string){
 void LCD_DISPLAY_DIGIT(float num){
     char s[20];
 	signed int x;
-    sprintf(s,"%.2f",num);
+    sprintf(s,"%.3f",num);
 	LCD_DISPLAY(s);
 }
+
+void LCD_DISPLAY_HEX(int num){
+    char s[20];
+	signed int x;
+    sprintf(s,"0x%X",num);
+	LCD_DISPLAY(s);
+}
+
 
 void LCD_CLEAR(){LCD_INSTRUCTION_4BIT(0x02);}
 

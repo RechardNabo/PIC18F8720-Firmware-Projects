@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <executable name="dist/default/production\PIC18F8720_8_MSSP_SPI.X.production.hex">
+    <memory name="program">
+      <units>bytes</units>
+      <length>131072</length>
+      <used>13534</used>
+      <free>117538</free>
+    </memory>
+    <memory name="data">
+      <units>bytes</units>
+      <length>3840</length>
+      <used>291</used>
+      <free>3549</free>
+    </memory>
+  </executable>
+</project>
